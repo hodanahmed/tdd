@@ -1,6 +1,7 @@
+require_relative 'bike'
 class DockingStation
 attr_reader :bike
-def initialize(amount_of_bikes = 0)
+def initialize(amount_of_bikes = 10)
   @bike = amount_of_bikes
 end
 
@@ -15,12 +16,5 @@ end
 
 def show_bikes
   @bike
-end
-
-class Bike
-
-  def is_it_working
-  return true
-  end
 end
 end
