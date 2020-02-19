@@ -5,14 +5,14 @@ attr_reader :cycle, :amount_of_bikes
 def initialize(amount_of_bikes = DEFAULT_CAPACITY)
   @bikes = []
   @amount_of_bikes = amount_of_bikes
-  @cycle = Bike.new
+
 end
 
-def return_bike
+def return_bike(bike)
   if full?
     raise 'Docking Station full'
   end
-  @bikes.push(@cycle)
+  @bikes.push(bike)
 end
 
 def show_bikes
@@ -23,7 +23,7 @@ def release_bike
 if empty?
     raise 'No more Bikes'
   end
- @bikes.pop(@cycle)
+ @bikes.pop
   end
 
 private
