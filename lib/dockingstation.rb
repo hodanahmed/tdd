@@ -1,27 +1,27 @@
 require_relative 'bike'
 class DockingStation
-attr_reader :bike
-def initialize(amount_of_bikes = 3)
-  @bike = amount_of_bikes
+attr_reader :cycle, :amount_of_bikes
+def initialize(amount_of_bikes = 20)
+  @bikes = []
   @amount_of_bikes = amount_of_bikes
+  @cycle = Bike.new
 end
 
 def return_bike
-  if @bike == @amount_of_bikes
+  if @bikes.count == @amount_of_bikes
     raise 'Docking Station full'
   end
-  @bike += 1
+  @bikes.push(@cycle)
 end
 
 def show_bikes
-  @bike
+  @bikes
 end
 
 def release_bike
-  if @bike == 0
+  if @bikes.count == 0
     raise 'No more Bikes'
   end
- @bike -= 1
- bike =  Bike.new
+ @bikes.pop(@cycle)
   end
 end

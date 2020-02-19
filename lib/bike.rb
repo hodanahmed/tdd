@@ -1,5 +1,5 @@
 class Bike
-attr_reader :bike
+attr_reader :cycle
   def is_it_working
   true
   end
