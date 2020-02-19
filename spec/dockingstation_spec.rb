@@ -43,5 +43,11 @@ it 'can tell user docking station is full' do
   dockingstation.amount_of_bikes.times{dockingstation.return_bike(bike)}
   expect {dockingstation.return_bike(bike)}.to raise_error(RuntimeError, "Docking Station full")
  end
+ it 'accepts broken bikes' do
+   dockingstation = DockingStation.new
+   bike = Bike.new
+   bike.report_broken
+  expect(dockingstation).to respond_to(:return_bike).with(1).argument
+ end
 end
 end
