@@ -31,7 +31,8 @@ describe '#release_bike' do
     dockingstation = DockingStation.new
     bike = Bike.new
     bike.report_broken
-    expect(subject.release_bike).to raise_error(RuntimeError, "This bike is broken!")
+    subject.return_bike(bike)
+    expect{subject.release_bike}.to raise_error "This bike is broken!"
   end
 end
 

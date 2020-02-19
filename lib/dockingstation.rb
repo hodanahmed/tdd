@@ -13,6 +13,7 @@ def return_bike(bike)
     raise 'Docking Station full'
   end
   @bikes.push(bike)
+  @bike = bike
 end
 
 def show_bikes
@@ -20,9 +21,13 @@ def show_bikes
 end
 
 def release_bike
-if empty?
+  if empty?
     raise 'No more Bikes'
   end
+  if @bike.broken?
+    raise 'This bike is broken!'
+  end
+
  @bikes.pop
   end
 
