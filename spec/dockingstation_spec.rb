@@ -21,7 +21,6 @@ describe '#initialize' do
 end
 
 describe '#release_bike' do
-
   it 'can tell user there is no more bikes' do
     dockingstation = DockingStation.new
     expect {dockingstation.release_bike}.to raise_error(RuntimeError, "No more Bikes")
@@ -38,10 +37,10 @@ end
 
 describe '#return_bike' do
 it 'can tell user docking station is full' do
-  dockingstation = DockingStation.new
-  bike = Bike.new
-  dockingstation.amount_of_bikes.times{dockingstation.return_bike(bike)}
-  expect {dockingstation.return_bike(bike)}.to raise_error(RuntimeError, "Docking Station full")
+  #dockingstation = DockingStation.new
+  #bike = Bike.new
+  subject.amount_of_bikes.times{subject.return_bike double :bike }
+  expect {subject.return_bike double (:bike) }.to raise_error(RuntimeError, "Docking Station full")
  end
  it 'accepts broken bikes' do
    dockingstation = DockingStation.new
